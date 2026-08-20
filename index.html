@@ -6,203 +6,172 @@
     <title>Generator SKU Desa Tambi 2026</title>
     <style>
         * { box-sizing: border-box; }
-        body { font-family: Arial, Helvetica, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
-        .container { display: flex; gap: 20px; max-width: 1200px; margin: auto; }
-        .form-section { width: 35%; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .preview-section { width: 65%; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 14px; }
-        .form-group input, .form-group textarea, .form-group select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
-        .form-group input:not(.inline-input), .form-group textarea:not(.inline-input), .form-group select:not(.inline-input) { width: 100%; }
+        body { font-family: Arial, Helvetica, sans-serif; margin: 15px; background-color: #eef2f5; color: #333; }
+        .wrapper { max-width: 900px; margin: 0 auto; }
         
-        .nomor-lock-wrapper { display: flex; align-items: center; gap: 4px; background: #e9ecef; border: 1px solid #ced4da; padding: 6px; border-radius: 4px; flex-wrap: wrap; }
-        .rt-rw-group { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; background: #f8f9fa; padding: 8px; border: 1px solid #dee2e6; border-radius: 4px; }
+        /* Panel Form Input */
+        .form-card { background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 25px; border-top: 5px solid #28a745; }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .form-group { margin-bottom: 10px; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 13px; color: #495057; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 8px 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 14px; }
+        
+        .nomor-lock-wrapper { display: flex; align-items: center; gap: 5px; background: #e9ecef; border: 1px solid #ced4da; padding: 6px; border-radius: 4px; flex-wrap: wrap; }
+        .rt-rw-group { display: flex; align-items: center; gap: 8px; background: #f8f9fa; padding: 6px 10px; border: 1px solid #dee2e6; border-radius: 4px; }
         .rt-rw-group input { width: 60px; text-align: center; font-weight: bold; }
-        .locked-text { font-weight: bold; color: #495057; font-size: 13px; user-select: none; }
         
         input[readonly], textarea[readonly] { background-color: #e9ecef !important; color: #495057 !important; cursor: not-allowed; font-weight: bold; }
-
-        button { background-color: #28a745; color: white; border: none; padding: 12px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; width: 100%; margin-top: 10px; font-size: 16px; }
-        button:hover { background-color: #218838; }
         
-        .kop-surat { 
-            position: relative;
-            border-bottom: 4px double #000; 
-            padding-bottom: 8px; 
-            margin-bottom: 25px; 
-            width: 100%;
-            min-height: 140px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .kop-logo {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .btn-print { background-color: #28a745; color: white; border: none; padding: 12px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; width: 100%; font-size: 16px; margin-top: 15px; }
+        .btn-print:hover { background-color: #218838; }
 
+        /* Area Preview Surat */
+        .preview-card { background: #ffffff; padding: 50px 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        /* KOP SURAT LOGO BESAR */
+        .kop-surat { position: relative; border-bottom: 4px double #000; padding-bottom: 8px; margin-bottom: 25px; width: 100%; min-height: 140px; display: flex; align-items: center; }
+        .kop-logo { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+        
         .kop-logo img { 
-            width: 135px; 
+            width: 140px; 
             height: auto; 
-            max-height: 145px; 
+            max-height: 150px; 
             object-fit: contain; 
-            display: block;
+            display: block; 
         }
         
-        .kop-teks {
-            width: 100%;
-            text-align: center;
-            padding-left: 135px; 
+        .kop-teks { 
+            width: 100%; 
+            text-align: center; 
+            padding-left: 145px; 
             padding-right: 10px;
         }
-
-        .kop-teks h3 { 
-            margin: 2px 0; 
-            font-size: 18px; 
-            font-weight: bold; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px; 
-        }
-        .kop-teks h2 { 
-            margin: 4px 0; 
-            font-size: 22px; 
-            font-weight: bold; 
-            text-transform: uppercase;
-            letter-spacing: 1px; 
-        }
-        .kop-teks p {
-            margin: 2px 0 0 0;
-            font-size: 12px;
-        }
+        
+        .kop-teks h3 { margin: 2px 0; font-size: 17px; font-weight: bold; text-transform: uppercase; }
+        .kop-teks h2 { margin: 3px 0; font-size: 20px; font-weight: bold; text-transform: uppercase; }
+        .kop-teks p { margin: 2px 0 0 0; font-size: 11px; }
 
         .judul-surat { text-align: center; margin-bottom: 25px; }
         .judul-surat h3 { text-decoration: underline; margin-bottom: 5px; font-size: 16px; font-weight: bold; text-transform: uppercase; }
-        .table-data { width: 100%; margin-left: 20px; margin-bottom: 20px; border-collapse: collapse; }
+        
+        .table-data { width: 100%; margin-left: 15px; margin-bottom: 20px; border-collapse: collapse; }
         .table-data td { padding: 4px; vertical-align: top; font-size: 15px; }
         .isi-surat { font-size: 15px; line-height: 1.6; text-align: justify; text-indent: 30px; }
-        .ttd-container { width: 100%; margin-top: 30px; display: flex; justify-content: flex-end; }
-        .ttd { text-align: center; width: 280px; font-size: 15px; }
         
+        .ttd-container { width: 100%; margin-top: 35px; display: flex; justify-content: flex-end; }
+        .ttd { text-align: center; width: 280px; font-size: 15px; }
+
+        /* Mode Cetak Ke PDF */
         @media print {
             body { background-color: #fff; margin: 0; }
-            .form-section, button { display: none !important; }
-            .container { display: block; width: 100%; }
-            .preview-section { width: 100%; box-shadow: none; padding: 0; }
+            .form-card { display: none !important; }
+            .wrapper { max-width: 100%; }
+            .preview-card { box-shadow: none; padding: 0; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- Panel Form Input Data (Kiri) -->
-    <div class="form-section">
-        <h2 style="margin-top:0;">Input Data SKU</h2>
+<div class="wrapper">
+    <!-- FORM INPUT DATA -->
+    <div class="form-card">
+        <h2 style="margin-top:0; color:#28a745; border-bottom: 2px solid #eee; padding-bottom: 10px;">Form Generator SKU Desa Tambi</h2>
         
-        <div class="form-group" style="background: #e8f4f8; padding: 10px; border-radius: 6px; border: 1px dashed #007bff;">
-            <label style="color: #0056b3;">Upload File Logo Kustom:</label>
-            <input type="file" id="inLogoFile" accept="image/*" onchange="previewLogo(event)">
-            <small style="color: #666; font-size: 11px;">*Pilih gambar logo dari perangkat Anda.</small>
-        </div>
+        <div class="form-grid">
+            <div class="form-group full-width" style="background: #e8f4f8; padding: 10px; border-radius: 6px; border: 1px dashed #007bff;">
+                <label style="color: #0056b3;">Upload File Logo Kustom:</label>
+                <input type="file" id="inLogoFile" accept="image/*" onchange="previewLogo(event)">
+            </div>
 
-        <div class="form-group">
-            <label>Nomor Surat (Terkunci Otomatis):</label>
-            <div class="nomor-lock-wrapper">
-                <span class="locked-text">045.2 /</span>
-                <input type="text" id="inNoUrut" class="inline-input" value="129" style="width: 55px; text-align: center;" oninput="updatePreview()" title="Isi Nomor Urut">
-                <span class="locked-text">/</span>
-                <select id="inBulan" class="inline-input" onchange="updatePreview()">
-                    <option value="I">I</option>
-                    <option value="II">II</option>
-                    <option value="III">III</option>
-                    <option value="IV">IV</option>
-                    <option value="V">V</option>
-                    <option value="VI">VI</option>
-                    <option value="VII" selected>VII</option>
-                    <option value="VIII">VIII</option>
-                    <option value="IX">IX</option>
-                    <option value="X">X</option>
-                    <option value="XI">XI</option>
-                    <option value="XII">XII</option>
+            <div class="form-group">
+                <label>Nomor Surat SKU:</label>
+                <div class="nomor-lock-wrapper">
+                    <b>045.2 /</b>
+                    <input type="text" id="inNoUrut" value="129" style="width: 50px; text-align: center;" oninput="updatePreview()">
+                    <b>/</b>
+                    <select id="inBulan" style="width: 65px;" onchange="updatePreview()">
+                        <option value="I">I</option><option value="II">II</option><option value="III">III</option>
+                        <option value="IV">IV</option><option value="V">V</option><option value="VI">VI</option>
+                        <option value="VII" selected>VII</option><option value="VIII">VIII</option>
+                        <option value="IX">IX</option><option value="X">X</option><option value="XI">XI</option><option value="XII">XII</option>
+                    </select>
+                    <b>/ 2026</b>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Nama Pemohon:</label>
+                <input type="text" id="inNama" value="ORANG TAMBI" oninput="updatePreview()">
+            </div>
+
+            <div class="form-group">
+                <label>Tempat, Tgl Lahir:</label>
+                <input type="text" id="inTtl" value="Purbalingga, 09 Oktober 1990" oninput="updatePreview()">
+            </div>
+
+            <div class="form-group">
+                <label>NIK:</label>
+                <input type="text" id="inNik" value="12345678999887788" oninput="updatePreview()">
+            </div>
+
+            <div class="form-group">
+                <label>Pekerjaan:</label>
+                <input type="text" id="inPekerjaan" value="PETANI/ PERTANIAN" oninput="updatePreview()">
+            </div>
+
+            <div class="form-group">
+                <label>RT / RW:</label>
+                <div class="rt-rw-group">
+                    <span>RT:</span><input type="text" id="inRt" value="002" oninput="updateAlamatLengkap()">
+                    <span>RW:</span><input type="text" id="inRw" value="001" oninput="updateAlamatLengkap()">
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label>Alamat Terkunci Otomatis:</label>
+                <textarea id="inAlamatLengkap" rows="2" readonly></textarea>
+            </div>
+
+            <div class="form-group full-width" style="background: #f0f0f0; padding: 10px; border-radius: 6px;">
+                <label>Bidang / Jenis Usaha:</label>
+                <input type="text" id="inNamaUsaha" value="Perdagangan Jajanan Ringan (Snack) dan Konter Pulsa" oninput="updatePreview()">
+            </div>
+
+            <div class="form-group">
+                <label>Tanggal Diterbitkan:</label>
+                <input type="text" id="inTglSurat" value="30 Juli 2026" oninput="updatePreview()">
+            </div>
+
+            <div class="form-group">
+                <label>Penandatangan:</label>
+                <select id="inJabatan" onchange="changePenandatangan()">
+                    <option value="kades">Kepala Desa Tambi (J U R I)</option>
+                    <option value="sekdes">a.n. Kepala Desa / Sekdes (SARYONO)</option>
                 </select>
-                <span class="locked-text">/ 2026</span>
+            </div>
+
+            <div class="form-group">
+                <label>Nama Penandatangan:</label>
+                <input type="text" id="inPenandatangan" value="J U R I" oninput="updatePreview()">
             </div>
         </div>
 
-        <div class="form-group">
-            <label>Nama Pemohon:</label>
-            <input type="text" id="inNama" value="ORANG TAMBI" oninput="updatePreview()">
-        </div>
-        <div class="form-group">
-            <label>Tempat, Tgl Lahir:</label>
-            <input type="text" id="inTtl" value="Purbalingga, 09 Oktober 1990" oninput="updatePreview()">
-        </div>
-        <div class="form-group">
-            <label>NIK:</label>
-            <input type="text" id="inNik" value="12345678999887788" oninput="updatePreview()">
-        </div>
-        <div class="form-group">
-            <label>Pekerjaan:</label>
-            <input type="text" id="inPekerjaan" value="PETANI/ PERTANIAN" oninput="updatePreview()">
-        </div>
-
-        <div class="form-group">
-            <label>Input RT / RW Pemohon:</label>
-            <div class="rt-rw-group">
-                <span>RT:</span>
-                <input type="text" id="inRt" value="002" oninput="updateAlamatLengkap()">
-                <span>RW:</span>
-                <input type="text" id="inRw" value="001" oninput="updateAlamatLengkap()">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Alamat Lengkap (Terkunci Otomatis):</label>
-            <textarea id="inAlamatLengkap" rows="2" readonly></textarea>
-        </div>
-
-        <div class="form-group" style="background: #e2e3e5; padding: 10px; border-radius: 6px; border: 1px solid #d6d8db;">
-            <label>Jenis / Bidang Usaha:</label>
-            <input type="text" id="inNamaUsaha" value="Perdagangan Jajanan Ringan (Snack) dan Konter Pulsa" oninput="updatePreview()">
-        </div>
-
-        <div class="form-group">
-            <label>Tanggal Surat Diterbitkan:</label>
-            <input type="text" id="inTglSurat" value="30 Juli 2026" oninput="updatePreview()">
-        </div>
-
-        <div class="form-group">
-            <label>Yang Bertanda Tangan:</label>
-            <select id="inJabatan" onchange="changePenandatangan()">
-                <option value="kades">Kepala Desa Tambi (J U R I)</option>
-                <option value="sekdes">a.n. Kepala Desa Tambi / Sekretaris Desa (SARYONO)</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Nama Penandatangan:</label>
-            <input type="text" id="inPenandatangan" value="J U R I" oninput="updatePreview()">
-        </div>
-
-        <button onclick="window.print()">Cetak SKU (PDF)</button>
+        <button class="btn-print" onclick="window.print()">Cetak / Simpan Sebagai PDF</button>
     </div>
 
-    <!-- Panel Preview Surat (Kanan) -->
-    <div class="preview-section" id="printArea">
+    <!-- PREVIEW SURAT -->
+    <div class="preview-card">
         <div class="kop-surat">
             <div class="kop-logo">
                 <img id="imgLogo" src="logo.png" alt="Logo Pemalang" onerror="this.style.display='none';">
             </div>
-            
             <div class="kop-teks">
                 <h3>PEMERINTAH KABUPATEN PEMALANG</h3>
                 <h3>KECAMATAN WATUKUMPUL</h3>
                 <h2>KEPALA DESA TAMBI</h2>
                 <p>Sekretariat : Jalan Raya Tambi Nomor 01 Kode Pos 52357</p>
-                <p style="font-size: 11px;">http://tambi.desakupemalang.id ; Email : tambi@desakupemalang.id</p>
+                <p style="font-size: 10px;">http://tambi.desakupemalang.id ; Email : tambi@desakupemalang.id</p>
             </div>
         </div>
 
@@ -245,37 +214,24 @@
             output.src = reader.result;
             output.style.display = 'block';
         };
-        if(event.target.files[0]) {
-            reader.readAsDataURL(event.target.files[0]);
-        }
+        if(event.target.files[0]) { reader.readAsDataURL(event.target.files[0]); }
     }
 
     function updateAlamatLengkap() {
         var rt = document.getElementById('inRt').value;
         var rw = document.getElementById('inRw').value;
-        var alamatHasil = "Desa Tambi RT." + rt + " / RW." + rw + "\nKec. Watukumpul, Kab. Pemalang.";
-        
-        document.getElementById('inAlamatLengkap').value = alamatHasil;
+        document.getElementById('inAlamatLengkap').value = "Desa Tambi RT." + rt + " / RW." + rw + "\nKec. Watukumpul, Kab. Pemalang.";
         updatePreview();
     }
 
     function changePenandatangan() {
         var tipe = document.getElementById('inJabatan').value;
-        var inputNama = document.getElementById('inPenandatangan');
-        
-        if (tipe === 'kades') {
-            inputNama.value = "J U R I";
-        } else if (tipe === 'sekdes') {
-            inputNama.value = "SARYONO";
-        }
+        document.getElementById('inPenandatangan').value = (tipe === 'kades') ? "J U R I" : "SARYONO";
         updatePreview();
     }
 
     function updatePreview() {
-        var noUrut = document.getElementById('inNoUrut').value;
-        var bulan = document.getElementById('inBulan').value;
-        
-        document.getElementById('outNomor').innerText = "045.2 / " + noUrut + " / " + bulan + " / 2026";
+        document.getElementById('outNomor').innerText = "045.2 / " + document.getElementById('inNoUrut').value + " / " + document.getElementById('inBulan').value + " / 2026";
         document.getElementById('outNama').innerText = document.getElementById('inNama').value;
         document.getElementById('outNik').innerText = document.getElementById('inNik').value;
         document.getElementById('outTtl').innerText = document.getElementById('inTtl').value;
@@ -296,13 +252,10 @@
             document.getElementById('outAnKades').innerHTML = "a.n. Kepala Desa Tambi<br>";
             document.getElementById('outJabatanTtd').innerText = "Sekretaris Desa";
         }
-        
         document.getElementById('outPenandatangan').innerText = document.getElementById('inPenandatangan').value;
     }
 
-    window.onload = function() {
-        updateAlamatLengkap();
-    };
+    window.onload = function() { updateAlamatLengkap(); };
 </script>
 
 </body>
