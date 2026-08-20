@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generator SKU Desa Tambi 2026</title>
+    <title>Generator SKTM Desa Tambi 2026</title>
     <style>
         * { box-sizing: border-box; }
         body { font-family: Arial, Helvetica, sans-serif; margin: 20px; background-color: #eef2f5; color: #333; }
@@ -12,7 +12,7 @@
         .container { display: flex; gap: 20px; max-width: 1400px; margin: auto; align-items: flex-start; }
         
         /* Panel Form Input (Kiri) */
-        .form-section { width: 35%; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 5px solid #28a745; }
+        .form-section { width: 35%; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 5px solid #007bff; }
         .form-group { margin-bottom: 12px; }
         .form-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 13px; color: #495057; }
         .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 8px 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 14px; }
@@ -23,8 +23,8 @@
         
         input[readonly], textarea[readonly] { background-color: #e9ecef !important; color: #495057 !important; cursor: not-allowed; font-weight: bold; }
         
-        .btn-print { background-color: #28a745; color: white; border: none; padding: 12px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; width: 100%; font-size: 16px; margin-top: 15px; }
-        .btn-print:hover { background-color: #218838; }
+        .btn-print { background-color: #007bff; color: white; border: none; padding: 12px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; width: 100%; font-size: 16px; margin-top: 15px; }
+        .btn-print:hover { background-color: #0056b3; }
 
         /* Panel Preview Surat (Kanan) - Ukuran Kertas F4 (Folio) */
         .preview-section { 
@@ -88,7 +88,7 @@
 <div class="container">
     <!-- PANEL FORM INPUT (KIRI) -->
     <div class="form-section">
-        <h2 style="margin-top:0; color:#28a745; border-bottom: 2px solid #eee; padding-bottom: 10px;">Form Input SKU</h2>
+        <h2 style="margin-top:0; color:#007bff; border-bottom: 2px solid #eee; padding-bottom: 10px;">Form Input SKTM</h2>
         
         <div class="form-group" style="background: #e8f4f8; padding: 10px; border-radius: 6px; border: 1px dashed #007bff;">
             <label style="color: #0056b3;">Upload File Logo Kustom:</label>
@@ -96,15 +96,15 @@
         </div>
 
         <div class="form-group">
-            <label>Nomor Surat SKU:</label>
+            <label>Nomor Surat SKTM:</label>
             <div class="nomor-lock-wrapper">
-                <b>045.2 /</b>
-                <input type="text" id="inNoUrut" value="129" style="width: 50px; text-align: center;" oninput="updatePreview()">
+                <b>400.3.5.6 /</b>
+                <input type="text" id="inNoUrut" value="078" style="width: 50px; text-align: center;" oninput="updatePreview()">
                 <b>/</b>
                 <select id="inBulan" style="width: 65px;" onchange="updatePreview()">
-                    <option value="I">I</option><option value="II">II</option><option value="III">III</option>
+                    <option value="I" selected>I</option><option value="II">II</option><option value="III">III</option>
                     <option value="IV">IV</option><option value="V">V</option><option value="VI">VI</option>
-                    <option value="VII" selected>VII</option><option value="VIII">VIII</option>
+                    <option value="VII">VII</option><option value="VIII">VIII</option>
                     <option value="IX">IX</option><option value="X">X</option><option value="XI">XI</option><option value="XII">XII</option>
                 </select>
                 <b>/ 2026</b>
@@ -113,22 +113,22 @@
 
         <div class="form-group">
             <label>Nama Pemohon:</label>
-            <input type="text" id="inNama" value="ORANG TAMBI" oninput="updatePreview()">
-        </div>
-
-        <div class="form-group">
-            <label>Tempat, Tgl Lahir:</label>
-            <input type="text" id="inTtl" value="Purbalingga, 09 Oktober 1990" oninput="updatePreview()">
+            <input type="text" id="inNama" value="SUKIRNO" oninput="updatePreview()">
         </div>
 
         <div class="form-group">
             <label>NIK:</label>
-            <input type="text" id="inNik" value="12345678999887788" oninput="updatePreview()">
+            <input type="text" id="inNik" value="3327040107590083" oninput="updatePreview()">
+        </div>
+
+        <div class="form-group">
+            <label>Tempat, Tgl Lahir:</label>
+            <input type="text" id="inTtl" value="Pemalang, 11/02/1959" oninput="updatePreview()">
         </div>
 
         <div class="form-group">
             <label>Pekerjaan:</label>
-            <input type="text" id="inPekerjaan" value="PETANI/ PERTANIAN" oninput="updatePreview()">
+            <input type="text" id="inPekerjaan" value="PERDAGANGAN" oninput="updatePreview()">
         </div>
 
         <div class="form-group">
@@ -145,26 +145,26 @@
         </div>
 
         <div class="form-group" style="background: #f0f0f0; padding: 10px; border-radius: 6px;">
-            <label>Bidang / Jenis Usaha:</label>
-            <input type="text" id="inNamaUsaha" value="Perdagangan Jajanan Ringan (Snack) dan Konter Pulsa" oninput="updatePreview()">
+            <label>Keterangan / Keperluan SKTM:</label>
+            <textarea id="inKeperluan" rows="3" oninput="updatePreview()">PRA KS yang saat ini sedang Sakit dan membutuhkan pengobatan secara rutin dan berkala di Rumah Sakit.</textarea>
         </div>
 
         <div class="form-group">
             <label>Tanggal Diterbitkan:</label>
-            <input type="text" id="inTglSurat" value="30 Juli 2026" oninput="updatePreview()">
+            <input type="text" id="inTglSurat" value="12 Januari 2026" oninput="updatePreview()">
         </div>
 
         <div class="form-group">
             <label>Penandatangan:</label>
             <select id="inJabatan" onchange="changePenandatangan()">
-                <option value="kades">Kepala Desa Tambi (J U R I)</option>
                 <option value="sekdes">a.n. Kepala Desa / Sekdes (SARYONO)</option>
+                <option value="kades">Kepala Desa Tambi (J U R I)</option>
             </select>
         </div>
 
         <div class="form-group">
             <label>Nama Penandatangan:</label>
-            <input type="text" id="inPenandatangan" value="J U R I" oninput="updatePreview()">
+            <input type="text" id="inPenandatangan" value="SARYONO" oninput="updatePreview()">
         </div>
 
         <button class="btn-print" onclick="window.print()">Cetak / Simpan PDF (F4)</button>
@@ -186,31 +186,31 @@
         </div>
 
         <div class="judul-surat">
-            <h3>SURAT KETERANGAN USAHA</h3>
-            <span>NOMOR : <span id="outNomor">045.2 / 129 / VII / 2026</span></span>
+            <h3>SURAT KETERANGAN TIDAK MAMPU</h3>
+            <span>NOMOR : <span id="outNomor">400.3.5.6 / 078 / I / 2026</span></span>
         </div>
 
-        <p class="isi-surat" style="text-indent: 0;">Yang bertanda tangan di bawah ini , Kepala Desa Tambi, Kecamatan Watukumpul, Kabupaten Pemalang menerangkan dengan sebenarnya bahwa :</p>
+        <p class="isi-surat" style="text-indent: 0;">Yang bertanda tangan dibawah ini, Kepala Desa Tambi Kecamatan Watukumpul Kabupaten Pemalang menerangkan dengan sebenarnya bahwa :</p>
 
         <table class="table-data">
-            <tr><td width="160">N a m a</td><td width="10">:</td><td><b id="outNama">ORANG TAMBI</b></td></tr>
-            <tr><td>Tempat,tanggal lahir</td><td>:</td><td id="outTtl">Purbalingga, 09 Oktober 1990</td></tr>
-            <tr><td>NIK</td><td>:</td><td id="outNik">12345678999887788</td></tr>
-            <tr><td>P e k e r j a a n</td><td>:</td><td id="outPekerjaan">PETANI/ PERTANIAN</td></tr>
-            <tr><td>A l a m a t</td><td>:</td><td id="outAlamat">Desa Tambi RT.002 / RW.001 Kec. Watukumpul, Kab. Pemalang.</td></tr>
+            <tr><td width="160">N a m a</td><td width="10">:</td><td><b id="outNama">SUKIRNO</b></td></tr>
+            <tr><td>NIK</td><td>:</td><td id="outNik">3327040107590083</td></tr>
+            <tr><td>Tempat Tgl Lahir</td><td>:</td><td id="outTtl">Pemalang, 11/02/1959</td></tr>
+            <tr><td>P e k e r j a a n</td><td>:</td><td id="outPekerjaan">PERDAGANGAN</td></tr>
+            <tr><td>A l a m a t</td><td>:</td><td id="outAlamat">Desa Tambi, RT 002 / RW. 001<br>Kec. Watukumpul, Kab. Pemalang</td></tr>
         </table>
 
-        <p class="isi-surat">Bahwa orang tersebut di atas adalah benar – benar Warga Desa Tambi yang mempunyai usaha sebagai <span id="outNamaUsaha" style="font-weight: bold;">Perdagangan Jajanan Ringan (Snack) dan Konter Pulsa</span>.</p>
+        <p class="isi-surat">Orang tersebut diatas adalah Keluarga Tidak Mampu ( <span id="outKeperluan" style="font-weight: bold;">PRA KS yang saat ini sedang Sakit dan membutuhkan pengobatan secara rutin dan berkala di Rumah Sakit.</span> )</p>
 
-        <p class="isi-surat">Demikian Surat Keterangan ini kami buat dengan sebenar-benarya untuk dapat dipergunakan sebagaimana mestinya .</p>
+        <p class="isi-surat">Demikian Surat Keterangan Tidak Mampu ini dibuat dan guna diperlukan sebagaimana mestinya.</p>
 
         <div class="ttd-container">
             <div class="ttd">
-                Tambi, <span id="outTglSurat">30 Juli 2026</span><br>
-                <span id="outAnKades"></span>
-                <b id="outJabatanTtd">Kepala Desa Tambi</b>
+                Tambi, <span id="outTglSurat">12 Januari 2026</span><br>
+                <span id="outAnKades">a.n. Kepala Desa Tambi<br></span>
+                <b id="outJabatanTtd">SEKRETARIS DESA</b>
                 <br><br><br><br><br>
-                <b id="outPenandatangan">J U R I</b>
+                <b id="outPenandatangan">SARYONO</b>
             </div>
         </div>
     </div>
@@ -230,7 +230,7 @@
     function updateAlamatLengkap() {
         var rt = document.getElementById('inRt').value;
         var rw = document.getElementById('inRw').value;
-        document.getElementById('inAlamatLengkap').value = "Desa Tambi RT." + rt + " / RW." + rw + "\nKec. Watukumpul, Kab. Pemalang.";
+        document.getElementById('inAlamatLengkap').value = "Desa Tambi, RT " + rt + " / RW. " + rw + "\nKec. Watukumpul, Kab. Pemalang";
         updatePreview();
     }
 
@@ -241,7 +241,7 @@
     }
 
     function updatePreview() {
-        document.getElementById('outNomor').innerText = "045.2 / " + document.getElementById('inNoUrut').value + " / " + document.getElementById('inBulan').value + " / 2026";
+        document.getElementById('outNomor').innerText = "400.3.5.6 / " + document.getElementById('inNoUrut').value + " / " + document.getElementById('inBulan').value + " / 2026";
         document.getElementById('outNama').innerText = document.getElementById('inNama').value;
         document.getElementById('outNik').innerText = document.getElementById('inNik').value;
         document.getElementById('outTtl').innerText = document.getElementById('inTtl').value;
@@ -249,9 +249,9 @@
         
         var rt = document.getElementById('inRt').value;
         var rw = document.getElementById('inRw').value;
-        document.getElementById('outAlamat').innerHTML = "Desa Tambi RT." + rt + " / RW." + rw + "<br>Kec. Watukumpul, Kab. Pemalang.";
+        document.getElementById('outAlamat').innerHTML = "Desa Tambi, RT " + rt + " / RW. " + rw + "<br>Kec. Watukumpul, Kab. Pemalang";
 
-        document.getElementById('outNamaUsaha').innerText = document.getElementById('inNamaUsaha').value;
+        document.getElementById('outKeperluan').innerText = document.getElementById('inKeperluan').value;
         document.getElementById('outTglSurat').innerText = document.getElementById('inTglSurat').value;
         
         var tipe = document.getElementById('inJabatan').value;
@@ -260,7 +260,7 @@
             document.getElementById('outJabatanTtd').innerText = "Kepala Desa Tambi";
         } else {
             document.getElementById('outAnKades').innerHTML = "a.n. Kepala Desa Tambi<br>";
-            document.getElementById('outJabatanTtd').innerText = "Sekretaris Desa";
+            document.getElementById('outJabatanTtd').innerText = "SEKRETARIS DESA";
         }
         document.getElementById('outPenandatangan').innerText = document.getElementById('inPenandatangan').value;
     }
