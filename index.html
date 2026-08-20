@@ -15,19 +15,16 @@
         .form-group input, .form-group textarea, .form-group select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
         .form-group input:not(.inline-input), .form-group textarea:not(.inline-input), .form-group select:not(.inline-input) { width: 100%; }
         
-        /* Layout Pengunci Nomor Surat & Alamat */
         .nomor-lock-wrapper { display: flex; align-items: center; gap: 4px; background: #e9ecef; border: 1px solid #ced4da; padding: 6px; border-radius: 4px; flex-wrap: wrap; }
         .rt-rw-group { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; background: #f8f9fa; padding: 8px; border: 1px solid #dee2e6; border-radius: 4px; }
         .rt-rw-group input { width: 60px; text-align: center; font-weight: bold; }
         .locked-text { font-weight: bold; color: #495057; font-size: 13px; user-select: none; }
         
-        /* Input Alamat Terkunci Total (Readonly) */
         input[readonly], textarea[readonly] { background-color: #e9ecef !important; color: #495057 !important; cursor: not-allowed; font-weight: bold; }
 
         button { background-color: #28a745; color: white; border: none; padding: 12px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; width: 100%; margin-top: 10px; font-size: 16px; }
         button:hover { background-color: #218838; }
         
-        /* Format Kop Surat Resmi Desa Tambi */
         .kop-surat { 
             position: relative;
             border-bottom: 4px double #000; 
@@ -91,7 +88,6 @@
         .ttd-container { width: 100%; margin-top: 30px; display: flex; justify-content: flex-end; }
         .ttd { text-align: center; width: 280px; font-size: 15px; }
         
-        /* Mode Cetak / Print PDF */
         @media print {
             body { background-color: #fff; margin: 0; }
             .form-section, button { display: none !important; }
@@ -103,18 +99,16 @@
 <body>
 
 <div class="container">
-    <!-- Form Input Data -->
+    <!-- Panel Form Input Data (Kiri) -->
     <div class="form-section">
         <h2 style="margin-top:0;">Input Data SKU</h2>
         
-        <!-- Upload File Logo -->
         <div class="form-group" style="background: #e8f4f8; padding: 10px; border-radius: 6px; border: 1px dashed #007bff;">
             <label style="color: #0056b3;">Upload File Logo Kustom:</label>
             <input type="file" id="inLogoFile" accept="image/*" onchange="previewLogo(event)">
             <small style="color: #666; font-size: 11px;">*Pilih gambar logo dari perangkat Anda.</small>
         </div>
 
-        <!-- Input Nomor Surat SKU -->
         <div class="form-group">
             <label>Nomor Surat (Terkunci Otomatis):</label>
             <div class="nomor-lock-wrapper">
@@ -137,7 +131,6 @@
                 </select>
                 <span class="locked-text">/ 2026</span>
             </div>
-            <small style="color: #666; font-size: 11px;">*Hanya No. Urut & Bulan yang bisa diisi</small>
         </div>
 
         <div class="form-group">
@@ -157,7 +150,6 @@
             <input type="text" id="inPekerjaan" value="PETANI/ PERTANIAN" oninput="updatePreview()">
         </div>
 
-        <!-- Input Khusus RT & RW saja -->
         <div class="form-group">
             <label>Input RT / RW Pemohon:</label>
             <div class="rt-rw-group">
@@ -168,13 +160,11 @@
             </div>
         </div>
 
-        <!-- Box Hasil Alamat Terkunci -->
         <div class="form-group">
             <label>Alamat Lengkap (Terkunci Otomatis):</label>
             <textarea id="inAlamatLengkap" rows="2" readonly></textarea>
         </div>
 
-        <!-- INPUT KHUSUS JENIS USAHA -->
         <div class="form-group" style="background: #e2e3e5; padding: 10px; border-radius: 6px; border: 1px solid #d6d8db;">
             <label>Jenis / Bidang Usaha:</label>
             <input type="text" id="inNamaUsaha" value="Perdagangan Jajanan Ringan (Snack) dan Konter Pulsa" oninput="updatePreview()">
@@ -185,7 +175,6 @@
             <input type="text" id="inTglSurat" value="30 Juli 2026" oninput="updatePreview()">
         </div>
 
-        <!-- Opsi Pilihan Penandatangan -->
         <div class="form-group">
             <label>Yang Bertanda Tangan:</label>
             <select id="inJabatan" onchange="changePenandatangan()">
@@ -201,7 +190,7 @@
         <button onclick="window.print()">Cetak SKU (PDF)</button>
     </div>
 
-    <!-- Tampilan Surat Hasil Generator -->
+    <!-- Panel Preview Surat (Kanan) -->
     <div class="preview-section" id="printArea">
         <div class="kop-surat">
             <div class="kop-logo">
@@ -232,7 +221,6 @@
             <tr><td>A l a m a t</td><td>:</td><td id="outAlamat">Desa Tambi RT.002 / RW.001 Kec. Watukumpul, Kab. Pemalang.</td></tr>
         </table>
 
-        <!-- PARAGRAF SESUAI DRAFT SKU -->
         <p class="isi-surat">Bahwa orang tersebut di atas adalah benar – benar Warga Desa Tambi yang mempunyai usaha sebagai <span id="outNamaUsaha" style="font-weight: bold;">Perdagangan Jajanan Ringan (Snack) dan Konter Pulsa</span>.</p>
 
         <p class="isi-surat">Demikian Surat Keterangan ini kami buat dengan sebenar-benarya untuk dapat dipergunakan sebagaimana mestinya .</p>
@@ -287,26 +275,19 @@
         var noUrut = document.getElementById('inNoUrut').value;
         var bulan = document.getElementById('inBulan').value;
         
-        // Nomor Terkunci Format SKU Desa Tambi (045.2)
         document.getElementById('outNomor').innerText = "045.2 / " + noUrut + " / " + bulan + " / 2026";
-        
-        // Update Data Pemohon
         document.getElementById('outNama').innerText = document.getElementById('inNama').value;
         document.getElementById('outNik').innerText = document.getElementById('inNik').value;
         document.getElementById('outTtl').innerText = document.getElementById('inTtl').value;
         document.getElementById('outPekerjaan').innerText = document.getElementById('inPekerjaan').value;
         
-        // Output Alamat
         var rt = document.getElementById('inRt').value;
         var rw = document.getElementById('inRw').value;
         document.getElementById('outAlamat').innerHTML = "Desa Tambi RT." + rt + " / RW." + rw + "<br>Kec. Watukumpul, Kab. Pemalang.";
 
-        // Output Jenis Usaha
         document.getElementById('outNamaUsaha').innerText = document.getElementById('inNamaUsaha').value;
-
         document.getElementById('outTglSurat').innerText = document.getElementById('inTglSurat').value;
         
-        // Logic Penandatangan
         var tipe = document.getElementById('inJabatan').value;
         if (tipe === 'kades') {
             document.getElementById('outAnKades').innerHTML = "";
